@@ -107,9 +107,20 @@
   /* Policies */
   .policies{background:var(--plum);color:var(--petal)}
   .policies .lede{color:#D9C6CD}
-  .pol{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:36px 48px}
-  .pol h3{font-family:var(--serif);font-weight:400;font-size:1.4rem;margin-bottom:8px;color:var(--champagne)}
-  .pol p{color:#E6D8DD;font-size:.98rem}
+  .pol{columns:3 290px;column-gap:20px}
+  .pol-card{border:1px solid rgba(230,210,181,.25);border-radius:18px;padding:26px 26px 22px;break-inside:avoid;margin-bottom:20px}
+  .pol-card.wide{margin:0}
+  .pol{margin-bottom:0}
+  .pol + .pol-card.wide{margin-top:0}
+  .policies .pol-card h3{font-family:var(--serif);font-weight:400;font-size:1.4rem;line-height:1.2;margin-bottom:14px;color:var(--champagne)}
+  .policies .pol-card h4{font-weight:500;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--champagne);margin:0 0 6px}
+  .policies .pol-card ul{list-style:none;display:grid;gap:10px}
+  .policies .pol-card li{position:relative;padding-left:20px;color:#E6D8DD;font-size:.98rem}
+  .policies .pol-card li::before{content:"–";position:absolute;left:0;color:var(--champagne)}
+  .policies .pol-card p{color:#E6D8DD;font-size:.98rem}
+  .policies .pol-card .sub{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:22px 40px;margin-bottom:20px}
+  .policies .pol-card .thanks{margin-top:4px;color:var(--champagne)}
+  @media(max-width:480px){.pol-card{padding:22px 20px 18px}}
 
   @media(max-width:640px){section{padding-top:56px;padding-bottom:56px}.hero{padding-top:36px;padding-bottom:56px}.lede{margin-bottom:32px}}
   footer{padding:36px clamp(20px,5vw,64px) calc(36px + env(safe-area-inset-bottom,0px));display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;font-size:.9rem;color:var(--plum-soft)}
@@ -182,7 +193,7 @@
           <input type="time" id="time" step="900">
         </div>
       </div>
-      <div class="alert" id="after" role="status">This time falls outside our normal hours (08:00–18:00), so an <strong>R200 after-hours fee</strong> will be added to your booking.</div>
+      <div class="alert" id="after" role="status">This time falls outside our normal hours (08:00–18:00), so an <strong><span class="afterfee">R200</span> after-hours fee</strong> will be added to your booking.</div>
       <div class="field">
         <label for="notes">Anything we should know? (optional)</label>
         <input type="text" id="notes" placeholder="e.g. bridal party of 3, inspiration pic to follow">
@@ -208,13 +219,81 @@
 <section class="policies" id="policies">
   <div class="wrap">
     <h2>Before you book</h2>
-    <p class="lede">Please read these so your appointment runs smoothly.</p>
+    <p class="lede">Welcome to Mika Studios! We strive to offer a professional and enjoyable experience for every client. To maintain the highest standards and smooth operations, please review and adhere to the following studio policies.</p>
     <div class="pol">
-      <div><h3>50% deposit</h3><p>A 50% deposit secures your slot. Bookings are only confirmed once the deposit has been paid.</p></div>
-      <div><h3>Studio location</h3><p>For privacy, our studio address is shared only after your deposit is paid and your booking is confirmed.</p></div>
-      <div><h3>After-hours</h3><p>Our hours are 08:00–18:00. Appointments before or after these hours carry an R200 after-hours fee.</p></div>
-      <div><h3>Cancellations</h3><p>[Add your cancellation and rescheduling policy here, e.g. how much notice is needed and whether deposits are refundable.]</p></div>
-      <div><h3>Arriving</h3><p>[Add prep instructions here, e.g. arrive on time with a clean face and freshly washed hair.]</p></div>
+      <div class="pol-card">
+        <h3>Appointments &amp; Booking</h3>
+        <ul>
+          <li>All appointments must be booked in advance.</li>
+          <li>A 50% deposit is required to secure your appointment. Your booking is only confirmed once the deposit has been paid.</li>
+          <li>Deposits are strictly non-refundable. No exceptions.</li>
+          <li>Our studio address is shared only after your deposit is paid and your booking is confirmed.</li>
+          <li>Late arrivals beyond 15 minutes with no communication will result in a cancelled appointment.</li>
+          <li>Arrivals 10 minutes late will be charged a late fee of R50 per 10 minutes.</li>
+          <li>Our hours are 08:00–18:00. Appointments before 08:00 or after 18:00 carry an additional fee of <span class="afterfee">R200</span>.</li>
+        </ul>
+      </div>
+      <div class="pol-card">
+        <h3>Cancellations &amp; Rescheduling</h3>
+        <ul>
+          <li>Mika Studios has a strict no refund, no cancellation policy.</li>
+          <li>Once an appointment is booked and a deposit is paid, no refund will be issued for any reason.</li>
+          <li>Clients who miss appointments or attempt to cancel will forfeit their deposit and be required to pay a new deposit to book again.</li>
+        </ul>
+      </div>
+      <div class="pol-card">
+        <h3>Payments</h3>
+        <ul>
+          <li>We accept electronic payments only.</li>
+          <li>Full payment is due upon completion of the service.</li>
+          <li>Prices are subject to change with prior notice.</li>
+        </ul>
+      </div>
+      <div class="pol-card">
+        <h3>Hygiene &amp; Safety</h3>
+        <ul>
+          <li>All tools and equipment are sanitized before and after every use.</li>
+          <li>Clients must disclose any skin allergies, conditions or sensitivities before service.</li>
+          <li>Mika Studios is not liable for adverse reactions due to undisclosed conditions.</li>
+        </ul>
+      </div>
+      <div class="pol-card">
+        <h3>Client Conduct</h3>
+        <ul>
+          <li>Respectful behaviour is expected at all times.</li>
+          <li>Rude or inappropriate behaviour may result in a refusal of service.</li>
+          <li>Clients receiving makeup services must arrive with a clean, makeup-free face.</li>
+        </ul>
+      </div>
+      <div class="pol-card">
+        <h3>Refunds &amp; Complaints</h3>
+        <ul>
+          <li>We do not offer refunds on any service, under any circumstances.</li>
+          <li>If you are dissatisfied, please speak to your service provider before leaving the studio.</li>
+          <li>Complaints must be submitted within 24 hours along with photographic evidence for review.</li>
+        </ul>
+      </div>
+      <div class="pol-card">
+        <h3>Children &amp; Guests</h3>
+        <ul>
+          <li>Due to space and safety concerns, no extra guests are allowed unless they are receiving a service.</li>
+          <li>Children are not allowed in the studio.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="pol-card wide">
+      <h3>Arriving: Lace &amp; Face Preparation Policy</h3>
+      <div class="sub">
+        <div>
+          <h4>Clean Lace</h4>
+          <p>Please ensure your lace is thoroughly cleaned and free from glue, adhesive, makeup, and product buildup before your appointment. Dirty or unclean lace will not be serviced.</p>
+        </div>
+        <div>
+          <h4>Clean Face</h4>
+          <p>Please arrive with a clean, makeup-free face to ensure the best results and proper application.</p>
+        </div>
+      </div>
+      <p class="thanks">Thank you for helping us maintain a clean, professional, and seamless service experience.</p>
     </div>
   </div>
 </section>
@@ -242,6 +321,7 @@
     { name: "Nails",                mins: null,hair: false },
   ];
   const OPEN = 8 * 60, CLOSE = 18 * 60, AFTER_FEE = 200;
+  document.querySelectorAll(".afterfee").forEach(e => e.textContent = "R" + AFTER_FEE);
 
   const fmtDur = m => m == null ? "Time varies"
     : (m >= 60 ? Math.floor(m/60) + " hr" : "") + (m % 60 ? " " + (m % 60) + " min" : "");
